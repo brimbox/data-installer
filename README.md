@@ -1,1 +1,1 @@
-This is a standard viewer pack for the default Brimbox interface.
+This is a data installer pack for the default Brimbox interface.
