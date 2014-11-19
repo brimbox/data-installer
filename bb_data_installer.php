@@ -150,19 +150,16 @@ if ($main->button(8))
 		{
 		//skip header row
 		$str = fgets($handle); 
-		$xml_lists = simplexml_load_string("<lists/>");
+		$arr_lists = array();
 		while($str = fgets($handle))
 			{
 			$arr_row = explode("\t",rtrim($str));	
-			$layout = $main->pad("l", $arr_row[0],4);
-			$child = $xml_lists->addChild($layout);
-			$child->{0} = $arr_row[1];
-			$child->addAttribute("row_type",$arr_row[2]);
-			$child->addAttribute("description",$arr_row[3]);
-			$child->addAttribute("archive",$arr_row[4]);			
+			$arr_lists[$arr_row[2]][$arr_row[0]]['name'] = $arr_row[1];
+            $arr_lists[$arr_row[2]][$arr_row[0]]['description'] = $arr_row[3];
+            $arr_lists[$arr_row[2]][$arr_row[0]]['archive'] = $arr_row[4];	
 			}
-		$main->update_xml($con, $xml_lists, "bb_create_lists");
-		array_push($arr_messages, "List Definitions have been brought into XML Table.");
+		$main->update_json($con, $arr_lists, "bb_create_lists");
+		array_push($arr_messages, "List Definitions have been brought into JSON Table.");
 		}
 	else
 		{
@@ -212,7 +209,7 @@ echo "<p class=\"spaced bold larger\">Upload Data</p>";
 $main->echo_button("truncate",array("label"=>"Trucate Existing Data Table", "class"=>"spaced", "number"=>1));
 echo "<span class = \"spaced border rounded padded shaded\">";
 echo "<label class=\"padded\">Confirm: </label>";
-$main->echo_input("check_truncate", 1, array('type'=>'checkbox','input_class'=>'middle padded'));
+$main->echo_input("check_truncate", 1, array('type'=>'checkbox','input_class'=>'middle holderup'));
 echo "</span><br>";
 $main->echo_button("stop_triggers", array("label"=>"Disable Date Triggers", "class"=>"spaced", "number"=>2));
 echo "<br>";
