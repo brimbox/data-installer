@@ -7,7 +7,7 @@
 @friendly_name = Data Installer;
 @interface = bb_brimbox;
 @module_type = 5;
-@module_version = 1.3;
+@module_version = 1.4;
 @maintain_state = No;
 @description = This is a Module that can be used to upload a whole data_table.;
 */
