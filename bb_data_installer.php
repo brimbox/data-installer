@@ -106,7 +106,7 @@ if ($main->button(4))
     $main->query($con, $query);
     $query = "ALTER SEQUENCE  data_table_id_seq OWNED BY data_table.id;";
 	$main->query($con, $query);
-    $query = "select setval('data_table_id_seq', (select max(id) + 1 from data_table));";
+    $query = "SELECT setval('data_table_id_seq', (select max(id) + 1 from data_table));";
     $main->query($con, $query);
 	
 	array_push($arr_messages, "Primary Key Sequence on column id has been created and reset.");
@@ -178,7 +178,7 @@ if ($main->button(8))
 			{
 			$arr_params = explode("\t",rtrim($str));
 			
-			$query = "UPDATE data_table SET list_string = list_update(list_string, $2) WHERE id = $1 AND row_type = $3;";
+			$query = "UPDATE data_table SET list_string = bb_list_set(list_string, $2) WHERE id = $1 AND row_type = $3;";
 			$main->query_params($con, $query, $arr_params);      
 			}
 		array_push($arr_messages, "List Data has been brought in Data Table.");
