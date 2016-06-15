@@ -27,9 +27,7 @@ session_name ( DB_NAME );
 session_start ();
 session_regenerate_id ();
 
-if (isset ( $_SESSION ['username'] ) && in_array ( $_SESSION ['userrole'], array (
-		"5_bb_brimbox" 
-) )) :
+if (isset($_SESSION ['username']) && in_array($_SESSION ['userrole'], array("5_bb_brimbox"))) :
 	
 	// set by controller (index.php)
 	$interface = $_SESSION ['interface'];
@@ -89,8 +87,8 @@ if (isset ( $_SESSION ['username'] ) && in_array ( $_SESSION ['userrole'], array
 		array_push ( $arr_messages, "Data Table has been truncated." );
 		$query = "TRUNCATE TABLE data_table;";
 		$main->query ( $con, $query );
-	} // safety check box not set
-elseif ($main->button ( 1 ) && ($main->post ( 'check_truncate', $submit ) != 1)) {
+	} elseif ($main->button ( 1 ) && ($main->post ( 'check_truncate', $submit ) != 1)) {
+		// safety check box not set
 		array_push ( $arr_messages, "Data Table has not been truncated. Please check confirm box." );
 	}
 	
@@ -230,17 +228,12 @@ elseif ($main->button ( 1 ) && ($main->post ( 'check_truncate', $submit ) != 1))
 	
 	// set $_POST for $POST
 	$query = "UPDATE state_table SET postdata = $1 WHERE id = " . $keeper . ";";
-	pg_query_params ( $con, $query, array (
-			$postdata 
-	) );
+	pg_query_params($con, $query, array($postdata));
 	
 	// REDIRECT
 	$index_path = "Location: " . $webpath . "/" . $slug;
 	header ( $index_path );
 	die ();
-
-
-
 
 endif;
 

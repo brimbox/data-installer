@@ -20,13 +20,13 @@
 <?php
 
 /*
-	@module_name=bb_data_installer;
-	@friendly_name = Data Installer;
-	@interface = bb_brimbox;
-	@module_type = 5;
-	@module_version = 2.0;
-	@description = This is a Module that can be used to upload a whole data_table.;
- */
+@module_name=bb_data_installer;
+@friendly_name = Data Installer;
+@interface = bb_brimbox;
+@module_type = 5;
+@module_version = 2.0;
+@description = This is a Module that can be used to upload a whole data_table.;
+*/
 ?>
 <?php
 
@@ -69,7 +69,7 @@ echo "<span class = \"spaced border rounded padded shaded\">";
 echo "<label class=\"padded\">Confirm: </label>";
 $main->echo_input ( "check_truncate", 1, array (
 		'type' => 'checkbox',
-		'input_class' => 'middle holderup' 
+		'class' => 'middle holderup' 
 ) );
 echo "</span><br>";
 $main->echo_button ( "stop_triggers", array (
@@ -117,7 +117,7 @@ echo "<span class = \"spaced border rounded padded shaded\">";
 echo "<label class=\"padded\">Confirm: </label>";
 $main->echo_input ( "check_empty", 1, array (
 		'type' => 'checkbox',
-		'input_class' => 'middle padded' 
+		'class' => 'middle holderup' 
 ) );
 echo "</span><br>";
 echo "<label class=\"spaced\">Select List Data File: </label>";
