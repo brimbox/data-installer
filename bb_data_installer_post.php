@@ -4,7 +4,7 @@
  * Copyright (C) Brimbox LLC
  *
  * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License Version 3 (GNU GPL v3)
+ * it under the terms of the GNU General Public License Version 3 (“GNU GPL v3”)
  * as published by the Free Software Foundation.
  *
  * This program is distributed in the hope that it will be useful,
@@ -94,9 +94,9 @@ if (isset($_SESSION ['username']) && in_array($_SESSION ['userrole'], array("5_b
 	
 	// disable date triggers
 	if ($main->button ( 2 )) {
-		$query = "ALTER TABLE data_table DISABLE TRIGGER ts1_bb_modify_date;";
+		$query = "ALTER TABLE data_table DISABLE TRIGGER ts1_modify_date;";
 		$main->query ( $con, $query );
-		$query = "ALTER TABLE data_table DISABLE TRIGGER ts2_bb_create_date;";
+		$query = "ALTER TABLE data_table DISABLE TRIGGER ts2_create_date;";
 		$main->query ( $con, $query );
 		array_push ( $arr_messages, "Date Triggers have been disabled." );
 	}
@@ -157,9 +157,9 @@ if (isset($_SESSION ['username']) && in_array($_SESSION ['userrole'], array("5_b
 	
 	// enable date column triggers
 	if ($main->button ( 6 )) {
-		$query = "ALTER TABLE data_table ENABLE TRIGGER ts1_bb_modify_date;";
+		$query = "ALTER TABLE data_table ENABLE TRIGGER ts1_modify_date;";
 		$main->query ( $con, $query );
-		$query = "ALTER TABLE data_table ENABLE TRIGGER ts2_bb_create_date;";
+		$query = "ALTER TABLE data_table ENABLE TRIGGER ts2_create_date;";
 		$main->query ( $con, $query );
 		
 		array_push ( $arr_messages, "Date Triggers have been enabled." );
